@@ -1,0 +1,620 @@
+/* ==========================================
+   1. ESTILOS GENERALES
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ==========================================
+   2. ENCABEZADO Y LOGO
+========================================== */
+
+header {
+    position: relative;
+    background: #1038e5;
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    width: min(1600px, 94%);
+    margin: auto;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+    width: clamp(155px, 20vw, 310px);
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================
+   3. BOTÓN HAMBURGUESA
+========================================== */
+
+.menu-toggle {
+    display: flex;
+    position: fixed;
+
+    top: 34px;
+    right: clamp(18px, 5vw, 100px);
+
+    z-index: 30;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 6px;
+
+    width: 64px;
+    height: 54px;
+
+    padding: 10px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   4. LAS TRES LÍNEAS
+========================================== */
+
+.menu-toggle span {
+    display: block;
+
+    width: 36px;
+    height: 4px;
+
+    background-color: white;
+    border-radius: 3px;
+
+    transition:
+        transform 0.7s ease-in-out,
+        opacity 0.5s ease-in-out;
+}
+
+
+/* ==========================================
+   5. TRANSFORMACIÓN A X
+========================================== */
+
+/* Primera línea: baja y gira 45 grados */
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+
+    transform: translateY(10px) rotate(45deg);
+
+}
+
+
+/* Segunda línea: desaparece suavemente */
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+
+    opacity: 0;
+
+}
+
+
+/* Tercera línea: sube y gira -45 grados */
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+
+    transform: translateY(-10px) rotate(-45deg);
+
+}
+
+
+/* ==========================================
+   6. RESPONSIVO PARA CELULARES
+========================================== */
+
+@media (max-width: 600px) {
+
+
+
+    .menu-toggle span {
+        width: 30px;
+        height: 3px;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+}
+
+
+/* ==========================================
+   6. FONDO OSCURO DEL MENÚ
+========================================== */
+
+.menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 19;
+    background: rgba(0, 0, 0, 0.88);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+}
+
+.menu-backdrop.abierto {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu-abierto {
+    overflow: hidden;
+}
+
+/* ==========================================
+   7. ENLACES DEL MENÚ SUPERPUESTO
+========================================== */
+
+.menu {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    padding: 100px 20px 35px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: clamp(8px, 2vh, 22px);
+
+    /* Mantener el menú renderizado permite animar su entrada. */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s ease;
+}
+
+.menu.abierto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.menu li {
+    width: 100%;
+    text-align: center;
+}
+
+.menu li a {
+    display: inline-block;
+    padding: 8px 12px;
+    color: white;
+    font-size: clamp(19px, 2.3vw, 38px);
+    font-weight: 400;
+    letter-spacing: 1px;
+    white-space: normal;
+}
+
+.menu li a:hover,
+.menu li a:focus-visible {
+    color: #b6ccff;
+}
+
+/* ==========================================
+   6. SECCIÓN DE SERVICIOS
+========================================== */
+
+.hero {
+    width: min(1700px, 94%);
+    margin: 55px auto;
+}
+
+.secciones {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 85px 25px;
+    align-items: start;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+.imagen-tarjeta {
+    position: relative;
+    overflow: hidden;
+    width: min(316px, 100%);
+    aspect-ratio: 316 / 229;
+    border-radius: 4px;
+}
+
+.secciones .seccion .imagen-tarjeta img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+/* Texto y oscurecimiento sobre la imagen al pasar el mouse. */
+.capa-oscura {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+}
+
+.imagen-tarjeta:hover img,
+.imagen-tarjeta:focus-within img {
+    transform: scale(0.91);
+}
+
+.imagen-tarjeta:hover .capa-oscura,
+.imagen-tarjeta:focus-within .capa-oscura {
+    opacity: 1;
+}
+
+.seccion a {
+    margin-top: 10px;
+    color: #0737dc;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.seccion cite {
+    color: rgb(65, 65, 66);
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ==========================================
+   7. SECCIÓN INFORMATIVA Y VIDEO
+========================================== */
+
+.info {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #222;
+    border-top: 15px solid rgb(10, 10, 202);
+}
+
+.info-orden {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 80%;
+    min-height: 450px;
+    margin: auto;
+    padding: 35px 0;
+}
+
+.video {
+    flex: 1 1 450px;
+    min-width: 0;
+}
+
+.video iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    border: 0;
+}
+
+.desc {
+    flex: 1 1 360px;
+    min-width: 0;
+}
+
+.desc h2 {
+    color: white;
+    font-size: 25px;
+    text-align: left;
+}
+
+.desc p {
+    color: white;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   8. FOOTER: DISTRIBUCIÓN GENERAL
+========================================== */
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 40px 20px;
+}
+
+.footer-contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ==========================================
+   9. FOOTER: CONTACTO
+========================================== */
+
+.footer-contacto {
+    flex: 1;
+}
+
+.footer-contacto h3 {
+    margin-bottom: 7px;
+    color: #111;
+    font-size: 14px;
+}
+
+.footer-contacto p {
+    color: #222;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-contacto .titulo-contacto {
+    margin-top: 28px;
+}
+
+/* ==========================================
+   10. FOOTER: ENLACES
+========================================== */
+
+.footer-enlaces {
+    flex: 1;
+}
+
+.footer-enlaces h3 {
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.footer-enlaces li {
+    margin-bottom: 8px;
+}
+
+.footer-enlaces a {
+    color: #8192a3;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-enlaces a:hover {
+    color: #0033cc;
+}
+
+/* ==========================================
+   11. FOOTER: FORMULARIO
+========================================== */
+
+.footer-formulario {
+    flex: 1.2;
+}
+
+.footer-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-formulario input,
+.footer-formulario textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+.footer-formulario textarea {
+    height: 85px;
+    resize: vertical;
+}
+
+.footer-formulario button {
+    align-self: flex-end;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #df4b4b;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.footer-formulario button:hover {
+    background-color: #bd3030;
+}
+
+/* ==========================================
+   12. TABLET: HASTA 1050 PX
+========================================== */
+
+@media (max-width: 1050px) {
+    .secciones {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 20px;
+    }
+}
+
+/* ==========================================
+   13. MÓVILES Y TABLETS: HASTA 800 PX
+========================================== */
+
+@media (max-width: 800px) {
+    .logo img {
+        width: clamp(150px, 28vw, 240px);
+    }
+
+    .menu-toggle {
+        padding: 10px;
+        top: 20px;
+        right: 15px;
+    }
+
+    .menu-toggle span {
+        width: 29px;
+        height: 3px;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .menu {
+        padding: 85px 14px 25px;
+        gap: 10px;
+    }
+
+    .menu li a {
+        padding: 8px;
+        font-size: clamp(19px, 4.5vw, 28px);
+    }
+
+    .hero {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .info-orden {
+        width: 92%;
+        padding: 30px 0;
+    }
+
+    .video,
+    .desc {
+        flex-basis: 100%;
+    }
+
+    .footer-contenedor {
+        width: 95%;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-contacto,
+    .footer-enlaces,
+    .footer-formulario {
+        width: 100%;
+    }
+
+    .footer-formulario button {
+        align-self: stretch;
+    }
+}
+
+/* ==========================================
+   14. CELULARES PEQUEÑOS: HASTA 520 PX
+========================================== */
+
+@media (max-width: 520px) {
+    .secciones {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .menu {
+        padding-top: 75px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .desc h2 {
+        font-size: 22px;
+    }
+}
+
+/* ==========================================
+   15. PANTALLAS TÁCTILES
+========================================== */
+
+@media (hover: none) {
+    .capa-oscura {
+        opacity: 1;
+        background: linear-gradient(transparent 35%, rgba(0, 0, 0, 0.75));
+        align-items: end;
+    }
+}
+
+/* ==========================================
+   16. ACCESIBILIDAD: REDUCIR ANIMACIONES
+========================================== */
+
+/* @media (prefers-reduced-motion: reduce) {
+    .imagen-tarjeta img,
+    .capa-oscura,
+    .menu-backdrop,
+    .menu,
+    .menu-toggle span {
+        transition: none;
+    }
+} */
