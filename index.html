@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Senati - Prueba</title>
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="stilos/style.css">
+    <link rel="shortcut icon" href="img/logo-icon.png" type="image/x-icon">
+
+    <!-- FUENTE ROBOTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ========================================
+         1. ENCABEZADO Y MENÚ HAMBURGUESA
+    ========================================= -->
+    <header>
+        <nav>
+
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo de SENATI">
+            </div>
+
+            <!-- BOTÓN HAMBURGUESA -->
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-controls="menu-principal"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- ENLACES DEL MENÚ -->
+            <ul class="menu" id="menu-principal">
+                <li><a href="#">Correo</a></li>
+                <li><a href="#">Biblioteca</a></li>
+                <li><a href="#">Blackboard</a></li>
+                <li><a href="#">Diseños Curriculares</a></li>
+                <li><a href="#">Biblioteca de Proyectos</a></li>
+                <li><a href="#">Complementación o Titulación</a></li>
+                <li><a href="#">Canal YouTube</a></li>
+                <li><a href="#">Sinfo</a></li>
+            </ul>
+
+        </nav>
+
+        <!-- FONDO OSCURO AL ABRIR EL MENÚ -->
+        <div class="menu-backdrop" aria-hidden="true"></div>
+    </header>
+
+    <main>
+        <!-- ========================================
+             2. TARJETAS DE SERVICIOS
+        ========================================= -->
+        <section class="hero">
+            <div class="secciones">
+
+                <!-- TARJETA 1: CORREO INSTITUCIONAL -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/correo-electronico-316x229.png"
+                            alt="Correo institucional de SENATI"
+                        >
+                        <div class="capa-oscura">
+                            <span>Acceda a su correo institucional</span>
+                        </div>
+                    </div>
+                    <a href="#">CORREO INSTITUCIONAL</a>
+                    <cite>Acceda a su correo institucional</cite>
+                </div>
+
+                <!-- TARJETA 2: BIBLIOTECA ONLINE -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/biblioteca-online-316x229.png"
+                            alt="Biblioteca online de SENATI"
+                        >
+                        <div class="capa-oscura">
+                            <span>Acceda a la biblioteca virtual</span>
+                        </div>
+                    </div>
+                    <a href="#">BIBLIOTECA ONLINE</a>
+                    <cite>Acceda a la biblioteca virtual</cite>
+                </div>
+
+                <!-- TARJETA 3: BLACKBOARD -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/bb-316x227.png"
+                            alt="Plataforma Blackboard"
+                        >
+                        <div class="capa-oscura">
+                            <span>Plataforma Aprendizaje en Línea</span>
+                        </div>
+                    </div>
+                    <a href="#">BLACKBOARD</a>
+                    <cite>Plataforma Aprendizaje en Línea</cite>
+                </div>
+
+                <!-- TARJETA 4: DISEÑOS CURRICULARES -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/contenidos-curriculares-316x229.png"
+                            alt="Diseños curriculares de SENATI"
+                        >
+                        <div class="capa-oscura">
+                            <span>Estructuras y Contenidos</span>
+                        </div>
+                    </div>
+                    <a href="#">DISEÑOS CURRICULARES</a>
+                    <cite>Estructuras y Contenidos</cite>
+                </div>
+
+                <!-- TARJETA 5: BIBLIOTECA DE PROYECTOS -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/biblioteca-de-proyectos-316x229.png"
+                            alt="Biblioteca de proyectos"
+                        >
+                        <div class="capa-oscura">
+                            <span>Miles de proyectos</span>
+                        </div>
+                    </div>
+                    <a href="#">BIBLIOTECA DE PROYECTOS</a>
+                    <cite>Miles de proyectos</cite>
+                </div>
+
+                <!-- TARJETA 6: COMPLEMENTACIÓN Y DIPLOMADOS -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/complementacion-y-diplomados-316x229.png"
+                            alt="Complementación y diplomados"
+                        >
+                        <div class="capa-oscura">
+                            <span>Programas de formación complementaria</span>
+                        </div>
+                    </div>
+                    <a href="#">COMPLEMENTACIÓN Y DIPLOMADOS</a>
+                    <cite>Programas de formación complementaria</cite>
+                </div>
+
+                <!-- TARJETA 7: YOUTUBE -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/Youtubr.png"
+                            alt="Canal de YouTube de SENATI"
+                        >
+                        <div class="capa-oscura">
+                            <span>Canal Oficial de SENATI</span>
+                        </div>
+                    </div>
+                    <a href="#">SENATI - YOUTUBE</a>
+                    <cite>Canal Oficial de SENATI</cite>
+                </div>
+
+                <!-- TARJETA 8: SOFTWARE ACADÉMICO -->
+                <div class="seccion">
+                    <div class="imagen-tarjeta">
+                        <img
+                            src="img/software.png"
+                            alt="Software académico de SENATI"
+                        >
+                        <div class="capa-oscura">
+                            <span>Software por Familia Ocupacional</span>
+                        </div>
+                    </div>
+                    <a href="#">SOFTWARE ACADÉMICO</a>
+                    <cite>Software por Familia Ocupacional</cite>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================
+             3. INFORMACIÓN DEL CAMPUS
+        ========================================= -->
+        <section class="info">
+            <div class="info-orden">
+
+                <!-- VIDEO -->
+                <div class="video">
+                    <iframe
+                        src="https://www.youtube.com/embed/QKnwwtKf-iA?si=7vjZzv166nMoHa6U"
+                        title="Video de Campus Online"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+
+                <!-- DESCRIPCIÓN -->
+                <div class="desc">
+                    <h2>CAMPUS ONLINE</h2>
+
+                    <p>
+                        Campus Online es un espacio que SENATI pone a disposición
+                        de sus estudiantes y colaboradores para acceder a las
+                        herramientas tecnológicas de aprendizaje. Estas
+                        herramientas incluyen el correo, las plataformas de
+                        aprendizaje en línea, las bibliotecas de contenido y el
+                        sitio de diseños curriculares. Encuéntralas disponibles
+                        las 24 horas del día. Puedes acceder a ellas desde
+                        cualquier dispositivo móvil.
+                    </p>
+
+                    <p>
+                        Si tienes alguna consulta o quieres hacernos llegar
+                        alguna sugerencia, escríbenos a
+                        soportevirtual@senati.pe.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================
+         4. PIE DE PÁGINA
+    ========================================= -->
+    <footer class="footer">
+        <div class="footer-contenedor">
+
+            <!-- CONTACTO -->
+            <div class="footer-contacto">
+                <h3>SEDE CENTRAL</h3>
+                <p>Av. Alfredo Mendiola #3520,</p>
+                <p>Independencia, Lima.</p>
+
+                <h3 class="titulo-contacto">CONTACTO</h3>
+                <p>Email: soportevirtual@senati.pe</p>
+                <p>Línea gratuita: 0801-11100</p>
+                <p>Central Telefónica: (01) 5149700</p>
+            </div>
+
+            <!-- ENLACES -->
+            <div class="footer-enlaces">
+                <h3>ENLACES</h3>
+                <ul>
+                    <li><a href="#">Correo</a></li>
+                    <li><a href="#">Biblioteca Online</a></li>
+                    <li><a href="#">Blackboard</a></li>
+                    <li><a href="#">Diseños Curriculares</a></li>
+                    <li><a href="#">Biblioteca de Proyectos</a></li>
+                    <li><a href="#">Complementación o Titulación</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Sinfo</a></li>
+                </ul>
+            </div>
+
+            <!-- FORMULARIO -->
+            <div class="footer-formulario">
+                <form action="#" method="post">
+                    <input
+                        type="text"
+                        name="nombre"
+                        placeholder="Nombre y Apellidos*"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email*"
+                        required
+                    >
+
+                    <textarea
+                        name="consulta"
+                        placeholder="Escriba su consulta"
+                        required
+                    ></textarea>
+
+                    <button type="submit">CONTÁCTENOS</button>
+                </form>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ========================================
+         5. JAVASCRIPT
+    ========================================= -->
+    <script src="js/main.js" defer></script>
+
+</body>
+</html>
